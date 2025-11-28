@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascension | Elevate Your Mind, Body & Lifestyle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Base ===== */
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Montserrat',sans-serif; background:#111; color:#fff; overflow-x:hidden; scroll-behavior:smooth;}
+a {text-decoration:none; color:inherit;}
+section {padding:80px 20px; position:relative;}
+
+/* ===== Hero Sections ===== */
+.hero, .hero2, .hero3, .hero4, .hero5, .hero6 {
+  height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; overflow:hidden;
+}
+.hero {background: linear-gradient(-45deg,#ff6a00,#ee0979,#00d084,#1f005c); background-size: 400% 400%; animation: gradientBG 20s ease infinite;}
+.hero2 {background:#0f2027; background-image:linear-gradient(135deg,#203a43,#2c5364);}
+.hero3 {background: linear-gradient(135deg,#11998e,#38ef7d);}
+.hero4, .hero5, .hero6 {background:#111;}
+
+/* Hero Text */
+.hero h1, .hero2 h1, .hero3 h1, .hero4 h1, .hero5 h1, .hero6 h1 { font-size:4rem; animation:fadeUp 1s ease forwards; }
+.hero p, .hero2 p, .hero3 p, .hero4 p, .hero5 p, .hero6 p { font-size:1.5rem; margin:20px 0; animation:fadeUp 1.2s ease forwards; }
+.hero button, .hero2 button, .hero3 button, .hero4 button, .hero5 button, .hero6 button {
+  background:#00d084; color:#fff; padding:18px 50px; border:none; border-radius:50px; font-weight:bold; transition:0.3s; animation:fadeUp 1.4s ease forwards;
+}
+.hero button:hover, .hero2 button:hover, .hero3 button:hover, .hero4 button:hover, .hero5 button:hover, .hero6 button:hover { background:#00b366; transform:scale(1.05); }
+
+/* Sections */
+.section-title { font-size:2.8rem; text-align:center; margin-bottom:60px; color:#fff; }
+.section-title::after { content:''; width:80px; height:4px; background:#00d084; display:block; margin:10px auto 0; border-radius:2px; }
+.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; perspective:1500px; }
+.card { background: rgba(255,255,255,0.05); border-radius:25px; padding:40px; width:320px; text-align:center; transition:transform 0.6s, box-shadow 0.6s; transform-style: preserve-3d; box-shadow:0 15px 40px rgba(0,0,0,0.5); }
+.card:hover { transform: rotateY(15deg) rotateX(15deg) scale(1.08); box-shadow:0 25px 60px rgba(0,0,0,0.8); }
+.card h3 { margin-bottom:15px; color:#00d084; }
+.card p { font-size:1rem; margin-bottom:20px; }
+.card button { background:#00d084; color:#fff; padding:12px 25px; border:none; border-radius:50px; font-weight:bold; transition:0.3s; }
+.card button:hover { background:#00b366; transform:scale(1.05); }
+
+/* CTA Section */
+.cta { text-align:center; background:linear-gradient(135deg,#2c5364,#203a43,#0f2027); border-radius:25px; padding:80px 20px; animation:fadeUp 1s ease forwards; }
+.cta h2 { font-size:2.8rem; margin-bottom:30px; }
+.cta button { background:#00d084; color:#fff; padding:18px 40px; border:none; border-radius:50px; font-weight:bold; transition:0.3s; box-shadow:0 0 20px #00d084; }
+.cta button:hover { background:#00b366; transform:scale(1.05); box-shadow:0 0 30px #00b366; }
+
+/* Footer */
+footer { text-align:center; padding:30px 20px; background:#111; color:#fff; font-size:0.9rem; }
+
+/* Particles */
+.particle { position:absolute; width:10px; height:10px; border-radius:50%; background:#00d084; opacity:0.7; animation:floatUp 12s linear infinite; }
+
+/* Animations */
+@keyframes fadeUp { 0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);} }
+@keyframes floatUp { 0% { transform:translateY(100vh) translateX(0);} 100% { transform:translateY(-50vh) translateX(50px);} }
+@keyframes gradientBG { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+.reveal { opacity:0; transform:translateY(20px); transition:1s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:992px){ .cards{flex-direction:column;align-items:center;} .hero h1,.hero2 h1,.hero3 h1,.hero4 h1,.hero5 h1,.hero6 h1{font-size:2.5rem;} .hero p,.hero2 p,.hero3 p,.hero4 p,.hero5 p,.hero6 p{font-size:1.2rem;} }
+</style>
+</head>
+<body>
+
+<!-- Hero / Landing -->
+<section class="hero">
+<h1>Ascension</h1>
+<p>Elevate Your Mind, Body & Lifestyle</p>
+<button onclick="document.getElementById('mind').scrollIntoView({behavior:'smooth'})">Begin Your Journey</button>
+</section>
+
+<!-- Mind Section -->
+<section id="mind" class="hero2 reveal">
+<h1>Mind Mastery</h1>
+<p>Focus, discipline, and mental performance optimized for you.</p>
+<div class="cards">
+<div class="card"><h3>Focus Routines</h3><p>Daily exercises to sharpen attention.</p><button onclick="window.location.href='mind.html'">Explore</button></div>
+<div class="card"><h3>Meditation</h3><p>Guided routines for clarity and calm.</p><button onclick="window.location.href='mind.html'">Explore</button></div>
+<div class="card"><h3>Goal Planning</h3><p>Achieve more by structuring your day.</p><button onclick="window.location.href='mind.html'">Explore</button></div>
+</div>
+</section>
+
+<!-- Body Section -->
+<section id="body" class="hero3 reveal">
+<h1>Body Optimization</h1>
+<p>Workouts, strength, and aesthetics designed for excellence.</p>
+<div class="cards">
+<div class="card"><h3>Strength</h3><p>Progressive routines to build muscle and power.</p><button onclick="window.location.href='body.html'">Explore</button></div>
+<div class="card"><h3>Fat Loss</h3><p>Burn fat effectively with minimal stress.</p><button onclick="window.location.href='body.html'">Explore</button></div>
+<div class="card"><h3>Aesthetic Sculpting</h3><p>Shape your ideal body with expert guidance.</p><button onclick="window.location.href='body.html'">Explore</button></div>
+</div>
+</section>
+
+<!-- Lifestyle Section -->
+<section id="lifestyle" class="hero4 reveal" style="background:url('https://www.w3schools.com/howto/rain.mp4') center center/cover no-repeat;">
+<h1>Lifestyle Ascension</h1>
+<p>Sleep, habits, recovery, and daily routines optimized.</p>
+<div class="cards">
+<div class="card"><h3>Sleep Optimization</h3><p>Better rest for better results.</p><button onclick="window.location.href='lifestyle.html'">Learn</button></div>
+<div class="card"><h3>Habits</h3><p>Create routines that stick long-term.</p><button onclick="window.location.href='lifestyle.html'">Learn</button></div>
+<div class="card"><h3>Recovery</h3><p>Techniques for faster regeneration.</p><button onclick="window.location.href='lifestyle.html'">Learn</button></div>
+</div>
+</section>
+
+<!-- Performance Section -->
+<section id="performance" class="hero5 reveal">
+<h1>Peak Performance</h1>
+<p>Maximize results in every area of your life.</p>
+<div class="cards">
+<div class="card"><h3>Elite Workouts</h3><p>Train like the best for long-term success.</p><button onclick="window.location.href='performance.html'">Explore</button></div>
+<div class="card"><h3>Nutrition</h3><p>Fuel your body optimally.</p><button onclick="window.location.href='performance.html'">Explore</button></div>
+<div class="card"><h3>Mindset</h3><p>Develop mental resilience and focus.</p><button onclick="window.location.href='performance.html'">Explore</button></div>
+</div>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="hero6 reveal" style="background:url('https://www.w3schools.com/howto/forest.mp4') center center/cover no-repeat;">
+<h1>Ascension Products</h1>
+<p>Guides, programs, and challenges to accelerate your journey.</p>
+<div class="cards">
+<div class="card"><h3>Training Programs</h3><p>Strength, fat loss, or aesthetics.</p><button onclick="window.location.href='products.html'">Buy Now</button></div>
+<div class="card"><h3>Nutrition Guides</h3><p>Easy-to-follow meal plans and recipes.</p><button onclick="window.location.href='products.html'">Buy Now</button></div>
+<div class="card"><h3>Ebooks & Challenges</h3><p>Step-by-step guides for long-term success.</p><button onclick="window.location.href='products.html'">Buy Now</button></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+<h2>Start Your Ascension Today</h2>
+<button onclick="window.location.href='index.html'">Join Now</button>
+</section>
+
+<!-- Footer -->
+<footer>&copy; 2025 Ascension. All Rights Reserved.<br>Follow us on TikTok, Instagram, YouTube.</footer>
+
+<!-- Particles -->
+<script>
+for(let i=0;i<80;i++){
+  let particle = document.createElement('div');
+  particle.classList.add('particle');
+  particle.style.left=Math.random()*window.innerWidth+'px';
+  particle.style.width=(5+Math.random()*12)+'px';
+  particle.style.height=(5+Math.random()*12)+'px';
+  particle.style.animationDuration=(6+Math.random()*12)+'s';
+  document.body.appendChild(particle);
+}
+
+// Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+for(let i=0;i<reveals.length;i++){
+  const windowHeight = window.innerHeight;
+  const revealTop = reveals[i].getBoundingClientRect().top;
+  const revealPoint = 150;
+  if(revealTop < windowHeight - revealPoint){
+    reveals[i].classList.add('active');
+  } else { reveals[i].classList.remove('active'); }
+}
+});
+</script>
+
+</body>
+</html>
