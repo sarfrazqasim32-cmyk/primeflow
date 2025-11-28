@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cognitive Game</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
+  #main-section, #puzzle-section { padding: 50px; }
+  button { padding: 10px 20px; font-size: 16px; margin: 10px; cursor: pointer; }
+  .puzzle { margin-top: 20px; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<!-- Main Section -->
+<div id="main-section">
+  <h1>Welcome to the Cognitive Game</h1>
+  <button id="start-game">Start Cognitive Game</button>
+</div>
+
+<!-- Puzzle Section -->
+<div id="puzzle-section" style="display:none;">
+  <h1>Puzzle Time!</h1>
+  <div class="puzzle" id="puzzle-display"></div>
+  <button id="next-puzzle">Next Puzzle</button>
+  <button id="back-main">Back</button>
+</div>
+
+<script>
+  // Array of 100+ puzzles (for demo, I'll create 100 simple placeholders)
+  const puzzles = Array.from({length: 100}, (_, i) => `Puzzle #${i + 1}: Solve this challenge!`);
+
+  // DOM elements
+  const mainSection = document.getElementById('main-section');
+  const puzzleSection = document.getElementById('puzzle-section');
+  const puzzleDisplay = document.getElementById('puzzle-display');
+  const startButton = document.getElementById('start-game');
+  const nextButton = document.getElementById('next-puzzle');
+  const backButton = document.getElementById('back-main');
+
+  // Function to show a random puzzle
+  function showRandomPuzzle() {
+    const randomIndex = Math.floor(Math.random() * puzzles.length);
+    puzzleDisplay.textContent = puzzles[randomIndex];
+  }
+
+  // Event Listeners
+  startButton.addEventListener('click', () => {
+    mainSection.style.display = 'none';
+    puzzleSection.style.display = 'block';
+    showRandomPuzzle();
+  });
+
+  nextButton.addEventListener('click', showRandomPuzzle);
+
+  backButton.addEventListener('click', () => {
+    puzzleSection.style.display = 'none';
+    mainSection.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
