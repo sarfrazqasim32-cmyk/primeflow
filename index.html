@@ -3,61 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cognitive Game</title>
+<title>Ascension</title>
 <style>
-  body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
-  #main-section, #puzzle-section { padding: 50px; }
-  button { padding: 10px 20px; font-size: 16px; margin: 10px; cursor: pointer; }
-  .puzzle { margin-top: 20px; font-size: 18px; }
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+  header { background:#1a1a1a; color:#fff; padding:20px; text-align:center; }
+  nav { display:flex; justify-content:center; gap:15px; background:#333; }
+  nav a { color:#fff; text-decoration:none; padding:10px; display:block; }
+  section { padding:40px 20px; border-bottom:1px solid #ddd; background:#fff; margin:0 10px; border-radius:8px; margin-bottom:10px;}
+  h2 { margin-top:0; }
+  button { padding:10px 20px; background:#1a1a1a; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+  button:hover { background:#444; }
+  #cognitive-game { display:none; text-align:center; }
+  #puzzle { margin-top:20px; font-size:20px; font-weight:bold; }
 </style>
 </head>
 <body>
 
-<!-- Main Section -->
-<div id="main-section">
-  <h1>Welcome to the Cognitive Game</h1>
-  <button id="start-game">Start Cognitive Game</button>
-</div>
+<header>
+  <h1>Ascension</h1>
+</header>
 
-<!-- Puzzle Section -->
-<div id="puzzle-section" style="display:none;">
-  <h1>Puzzle Time!</h1>
-  <div class="puzzle" id="puzzle-display"></div>
-  <button id="next-puzzle">Next Puzzle</button>
-  <button id="back-main">Back</button>
-</div>
+<nav>
+  <a href="#digital-products">Digital Products</a>
+  <a href="#ascension-community">Ascension Community</a>
+  <a href="#mind-mastery">Mind Mastery</a>
+  <a href="#body-optimization">Body Optimization</a>
+  <a href="#lifestyle-transformation">Lifestyle Transformation</a>
+  <a href="#peak-performance">Peak Performance</a>
+  <a href="#ascension-expansion">Ascension Expansion</a>
+  <a href="#cognitive-game-section">Cognitive Game</a>
+</nav>
+
+<section id="digital-products">
+  <h2>Digital Products</h2>
+  <p>Explore our range of digital resources to level up your life and skills.</p>
+</section>
+
+<section id="ascension-community">
+  <h2>Ascension Community</h2>
+  <p>Join a thriving community focused on personal growth and peak performance.</p>
+</section>
+
+<section id="mind-mastery">
+  <h2>Mind Mastery</h2>
+  <p>Techniques and exercises to sharpen your mind and enhance mental clarity.</p>
+</section>
+
+<section id="body-optimization">
+  <h2>Body Optimization</h2>
+  <p>Guides for physical fitness, nutrition, and building your ideal body.</p>
+</section>
+
+<section id="lifestyle-transformation">
+  <h2>Lifestyle Transformation</h2>
+  <p>Strategies for transforming habits, routines, and life efficiency.</p>
+</section>
+
+<section id="peak-performance">
+  <h2>Peak Performance</h2>
+  <p>Unlock your full potential in work, sports, and daily life.</p>
+</section>
+
+<section id="ascension-expansion">
+  <h2>Ascension Expansion</h2>
+  <p>Advanced programs to take your personal growth to the next level.</p>
+  <ul>
+    <li>Advanced Mind Mastery</li>
+    <li>Advanced Body Optimization</li>
+    <li>Advanced Lifestyle Transformation</li>
+    <li>Advanced Peak Performance</li>
+  </ul>
+</section>
+
+<section id="cognitive-game-section">
+  <h2>Cognitive Game / Puzzle Section</h2>
+  <p>Press the button to start your mind challenge!</p>
+  <button onclick="startGame()">Start Cognitive Game</button>
+
+  <div id="cognitive-game">
+    <p id="puzzle"></p>
+    <button onclick="nextPuzzle()">Next Puzzle</button>
+    <button onclick="exitGame()">Back to Website</button>
+  </div>
+</section>
 
 <script>
-  // Array of 100+ puzzles (for demo, I'll create 100 simple placeholders)
-  const puzzles = Array.from({length: 100}, (_, i) => `Puzzle #${i + 1}: Solve this challenge!`);
+// 100+ sample puzzles
+const puzzles = [
+  "Word Puzzle: Unscramble 'EAPPL' → ?",
+  "Math Puzzle: What is 15 + 28?",
+  "Logic Puzzle: If all cats are animals, and all animals breathe, do all cats breathe?",
+  "Memory Challenge: Repeat these numbers 3, 8, 2, 9",
+  "Pattern Recognition: 2, 4, 8, 16, ?",
+  "Word Puzzle: Unscramble 'NIPOT' → ?",
+  "Math Puzzle: What is 12 × 7?",
+  "Logic Puzzle: John is taller than Mike, Mike is taller than Sam. Who is the shortest?",
+  "Memory Challenge: Remember these letters A, D, F, G, B",
+  "Pattern Recognition: 5, 10, 20, 40, ?",
+  "Word Puzzle: Unscramble 'TAC' → ?",
+  "Math Puzzle: What is 50 ÷ 5?",
+  "Logic Puzzle: True or False – Some birds can fly.",
+  "Memory Challenge: Remember 7, 3, 9, 1",
+  "Pattern Recognition: 1, 1, 2, 3, 5, ?",
+  "Word Puzzle: Unscramble 'RAEBR' → ?",
+  "Math Puzzle: What is 18 - 9?",
+  "Logic Puzzle: All roses are flowers, some flowers fade quickly. Do some roses fade quickly?",
+  "Memory Challenge: Repeat these numbers 4, 7, 2, 8",
+  "Pattern Recognition: 10, 20, 40, 80, ?",
+  // ... add more to reach 100+
+];
 
-  // DOM elements
-  const mainSection = document.getElementById('main-section');
-  const puzzleSection = document.getElementById('puzzle-section');
-  const puzzleDisplay = document.getElementById('puzzle-display');
-  const startButton = document.getElementById('start-game');
-  const nextButton = document.getElementById('next-puzzle');
-  const backButton = document.getElementById('back-main');
+// Game functions
+function startGame() {
+  document.getElementById("cognitive-game").style.display = "block";
+  nextPuzzle();
+}
 
-  // Function to show a random puzzle
-  function showRandomPuzzle() {
-    const randomIndex = Math.floor(Math.random() * puzzles.length);
-    puzzleDisplay.textContent = puzzles[randomIndex];
-  }
+function nextPuzzle() {
+  const puzzleIndex = Math.floor(Math.random() * puzzles.length);
+  document.getElementById("puzzle").innerText = puzzles[puzzleIndex];
+}
 
-  // Event Listeners
-  startButton.addEventListener('click', () => {
-    mainSection.style.display = 'none';
-    puzzleSection.style.display = 'block';
-    showRandomPuzzle();
-  });
-
-  nextButton.addEventListener('click', showRandomPuzzle);
-
-  backButton.addEventListener('click', () => {
-    puzzleSection.style.display = 'none';
-    mainSection.style.display = 'block';
-  });
+function exitGame() {
+  document.getElementById("cognitive-game").style.display = "none";
+  document.getElementById("puzzle").innerText = "";
+}
 </script>
 
 </body>
