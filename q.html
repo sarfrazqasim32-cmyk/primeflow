@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeFlow | LuxMax Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Montserrat',sans-serif; background:#111; color:#fff; scroll-behavior:smooth; }
+a { text-decoration:none; color:inherit; }
+section { padding:100px 20px; }
+
+/* Hero with animated gradient background */
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #00d084);
+  background-size: 600% 600%;
+  animation: gradientBG 15s ease infinite;
+}
+.hero h1 { font-size:4rem; animation:fadeUp 1s ease forwards; }
+.hero p { font-size:1.5rem; margin:20px 0; animation:fadeUp 1.2s ease forwards; }
+.hero button {
+  background:#00d084;
+  color:#fff;
+  padding:18px 50px;
+  border:none;
+  border-radius:50px;
+  font-weight:bold;
+  font-size:1.1rem;
+  transition:0.3s;
+  animation:fadeUp 1.4s ease forwards;
+}
+.hero button:hover { background:#00b366; transform:scale(1.05); }
+
+/* Section Titles */
+.section-title { font-size:2.8rem; text-align:center; margin-bottom:60px; color:#fff; }
+.section-title::after { content:''; width:80px; height:4px; background:#00d084; display:block; margin:10px auto 0; border-radius:2px; }
+
+/* Feature Cards */
+.card-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius:20px;
+  padding:40px 30px;
+  width:300px;
+  text-align:center;
+  backdrop-filter: blur(10px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.3);
+  transition:0.5s;
+  position:relative;
+  overflow:hidden;
+}
+.card::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:linear-gradient(45deg,#00d084,#00b366);
+  opacity:0;
+  transition:0.5s;
+  border-radius:20px;
+  z-index:0;
+}
+.card:hover::before { opacity:0.15; }
+.card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 25px 40px rgba(0,0,0,0.5); }
+.card h3 { margin-bottom:15px; color:#00d084; position:relative; z-index:1; }
+.card p { font-size:1rem; margin-bottom:20px; position:relative; z-index:1; }
+.card button { background:#00d084; color:#fff; padding:12px 25px; border:none; border-radius:30px; font-weight:bold; transition:0.3s; position:relative; z-index:1; }
+.card button:hover { background:#00b366; transform:scale(1.05); }
+
+/* Animated Features Section with parallax images */
+.features { position:relative; overflow:hidden; }
+.features img { width:100%; max-height:400px; object-fit:cover; transition: transform 0.5s; border-radius:25px; }
+.features img:hover { transform:scale(1.05); }
+
+/* CTA Section */
+.cta {
+  text-align:center;
+  background: linear-gradient(135deg,#2c5364,#203a43,#0f2027);
+  color:#fff;
+  border-radius:25px;
+  padding:80px 20px;
+}
+.cta h2 { font-size:2.8rem; margin-bottom:30px; }
+.cta button { background:#00d084; color:#fff; padding:18px 40px; border:none; border-radius:50px; font-weight:bold; transition:0.3s; }
+.cta button:hover { background:#00b366; transform:scale(1.05); }
+
+/* Footer */
+footer { text-align:center; padding:30px 20px; background:#111; color:#fff; font-size:0.9rem; }
+
+/* Animations */
+@keyframes fadeUp { 0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);} }
+@keyframes gradientBG { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+.reveal { opacity:0; transform:translateY(20px); transition:1s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:992px){ .card-container{flex-direction:column;align-items:center;} .hero h1{font-size:2.5rem;} .hero p{font-size:1.2rem;} }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+<h1>LuxMax Experience</h1>
+<p>Unlock your full potential with PrimeFlow’s ultimate lifestyle guide</p>
+<button onclick="window.location.href='index.html'">Back to Home</button>
+</section>
+
+<!-- Features -->
+<section class="features reveal">
+<h2 class="section-title">Why LuxMax?</h2>
+<div class="card-container">
+<div class="card"><h3>Maximize Health</h3><p>Learn the exact daily routines that boost energy, sleep, and recovery.</p><button>Explore</button></div>
+<div class="card"><h3>Ultimate Fitness</h3><p>Step-by-step workouts that are easy to follow yet extremely effective.</p><button>Explore</button></div>
+<div class="card"><h3>Nutrition Mastery</h3><p>Simple meal guides and tips to get the body you want without stress.</p><button>Explore</button></div>
+<div class="card"><h3>Lifestyle Focus</h3><p>Daily habits, mindset, and consistency strategies to level up your life.</p><button>Explore</button></div>
+</div>
+</section>
+
+<!-- Parallax Image Section -->
+<section class="features reveal">
+<h2 class="section-title">Immersive Experience</h2>
+<div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Nature 1">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Nature 2">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Nature 3">
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+<h2>Ready to Upgrade Your Life?</h2>
+<button onclick="window.location.href='index.html'">Get Started Today</button>
+</section>
+
+<!-- Footer -->
+<footer>&copy; 2025 PrimeFlow. All Rights Reserved.<br>Follow us on TikTok, Instagram, and YouTube.</footer>
+
+<script>
+// Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+for(let i=0;i<reveals.length;i++){
+  const windowHeight = window.innerHeight;
+  const revealTop = reveals[i].getBoundingClientRect().top;
+  const revealPoint = 150;
+  if(revealTop < windowHeight - revealPoint){
+    reveals[i].classList.add('active');
+  } else { reveals[i].classList.remove('active'); }
+}
+});
+</script>
+
+</body>
+</html>
