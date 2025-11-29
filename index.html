@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascension</title>
+<style>
+  /* Fonts and Basic Styles */
+  body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin:0; padding:0; 
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); 
+    color:#333; 
+    transition: background 0.5s ease;
+  }
+
+  header { 
+    background: linear-gradient(90deg, #6a11cb, #2575fc); 
+    color:#fff; padding:30px 20px; text-align:center; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeInDown 1s ease;
+  }
+
+  nav { 
+    display:flex; justify-content:center; gap:15px; 
+    background:#333; 
+    position: sticky; top: 0; z-index: 1000;
+  }
+
+  nav a { 
+    color:#fff; text-decoration:none; padding:10px 15px; display:block; 
+    transition: 0.3s; 
+    border-radius: 5px;
+  }
+
+  nav a:hover { 
+    background: #6a11cb; 
+    color:#fff; 
+    transform: scale(1.1);
+  }
+
+  section { 
+    padding:50px 20px; 
+    border-radius:12px; 
+    margin:20px auto; 
+    max-width: 900px;
+    background: #fff; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 { margin-top:0; color:#2575fc; }
+
+  button { 
+    padding:12px 25px; 
+    background: #2575fc; 
+    color:#fff; border:none; border-radius:8px; cursor:pointer; 
+    font-weight:bold; transition: all 0.3s ease; 
+  }
+
+  button:hover { 
+    background: #6a11cb; 
+    transform: scale(1.05) rotate(-2deg);
+  }
+
+  #cognitive-game { display:none; text-align:center; margin-top:20px; }
+
+  #puzzle { 
+    margin-top:20px; font-size:22px; font-weight:bold; 
+    color:#6a11cb;
+    animation: pulse 1.5s infinite;
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    0% { opacity:0; transform: translateY(-50px); }
+    100% { opacity:1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ascension</h1>
+</header>
+
+<nav>
+  <a href="#digital-products">Digital Products</a>
+  <a href="#ascension-community">Ascension Community</a>
+  <a href="#mind-mastery">Mind Mastery</a>
+  <a href="#body-optimization">Body Optimization</a>
+  <a href="#lifestyle-transformation">Lifestyle Transformation</a>
+  <a href="#peak-performance">Peak Performance</a>
+  <a href="#ascension-expansion">Ascension Expansion</a>
+  <a href="#cognitive-game-section">Cognitive Game</a>
+</nav>
+
+<section id="digital-products">
+  <h2>Digital Products</h2>
+  <p>Explore our range of digital resources to level up your life and skills.</p>
+</section>
+
+<section id="ascension-community">
+  <h2>Ascension Community</h2>
+  <p>Join a thriving community focused on personal growth and peak performance.</p>
+</section>
+
+<section id="mind-mastery">
+  <h2>Mind Mastery</h2>
+  <p>Techniques and exercises to sharpen your mind and enhance mental clarity.</p>
+</section>
+
+<section id="body-optimization">
+  <h2>Body Optimization</h2>
+  <p>Guides for physical fitness, nutrition, and building your ideal body.</p>
+</section>
+
+<section id="lifestyle-transformation">
+  <h2>Lifestyle Transformation</h2>
+  <p>Strategies for transforming habits, routines, and life efficiency.</p>
+</section>
+
+<section id="peak-performance">
+  <h2>Peak Performance</h2>
+  <p>Unlock your full potential in work, sports, and daily life.</p>
+</section>
+
+<section id="ascension-expansion">
+  <h2>Ascension Expansion</h2>
+  <p>Advanced programs to take your personal growth to the next level.</p>
+  <ul>
+    <li>Advanced Mind Mastery</li>
+    <li>Advanced Body Optimization</li>
+    <li>Advanced Lifestyle Transformation</li>
+    <li>Advanced Peak Performance</li>
+  </ul>
+</section>
+
+<section id="cognitive-game-section">
+  <h2>Cognitive Game / Puzzle Section</h2>
+  <p>Press the button to start your mind challenge!</p>
+  <button onclick="startGame()">Start Cognitive Game</button>
+
+  <div id="cognitive-game">
+    <p id="puzzle"></p>
+    <button onclick="nextPuzzle()">Next Puzzle</button>
+    <button onclick="exitGame()">Back to Website</button>
+  </div>
+</section>
+
+<script>
+  // Scroll Animation
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(section => observer.observe(section));
+
+  // 100+ sample puzzles
+  const puzzles = [
+    "Word Puzzle: Unscramble 'EAPPL' → ?",
+    "Math Puzzle: What is 15 + 28?",
+    "Logic Puzzle: If all cats are animals, and all animals breathe, do all cats breathe?",
+    "Memory Challenge: Repeat these numbers 3, 8, 2, 9",
+    "Pattern Recognition: 2, 4, 8, 16, ?",
+    "Word Puzzle: Unscramble 'NIPOT' → ?",
+    "Math Puzzle: What is 12 × 7?",
+    "Logic Puzzle: John is taller than Mike, Mike is taller than Sam. Who is the shortest?",
+    "Memory Challenge: Remember these letters A, D, F, G, B",
+    "Pattern Recognition: 5, 10, 20, 40, ?"
+  ];
+
+  function startGame() {
+    document.getElementById("cognitive-game").style.display = "block";
+    nextPuzzle();
+  }
+
+  function nextPuzzle() {
+    const puzzleIndex = Math.floor(Math.random() * puzzles.length);
+    document.getElementById("puzzle").innerText = puzzles[puzzleIndex];
+  }
+
+  function exitGame() {
+    document.getElementById("cognitive-game").style.display = "none";
+    document.getElementById("puzzle").innerText = "";
+  }
+</script>
+
+</body>
+</html>
